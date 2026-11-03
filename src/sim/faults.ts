@@ -518,7 +518,7 @@ export const FAULTS: Record<FaultId, FaultDef> = {
     short: 'Failover overloads the receiving region and spreads the outage',
     targets: ['app'],
     story: (s) =>
-      `A regional outage moved traffic from us-east-1 to eu-west-1, where ${s} had too little spare capacity. Its queues filled, it shed requests, and callers across regions timed out behind it.`,
+      `A primary-region outage moved traffic to a secondary region, where ${s} had too little spare capacity. Its queues filled, it shed requests, and callers across regions timed out behind it.`,
     signals: [
       'A failover log shows traffic shifted from one region to another',
       'The receiving region has rising traffic, latency and errors plus load-shedding logs',
